@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/loginform.css">
+
+<div class="container text">
+	<h4>Create Your Account:</h4>
+	<br>
+		<form class="login-form" action="/users" method="post">
+
+			<input type="text" id="usernameInput" class="form-control" placeholder="Username" required autofocus name="user[username]">
+				<br>
+			<input type="text" id="fullnameInput" class="form-control" placeholder="Full Name" required name="user[fullname]">
+				<br>
+			<input type="email" id="emailInput" class="form-control" placeholder="Email" required name="user[email]">
+				<br>
+			<input type="password" id="passwordInput" class="form-control" placeholder="Password" required name="user[password]">
+				<br>
+			<input type="submit" value="Sign Up" class="signup-button">
+
+		</form>
+	<br>
+
+	<% if @error != nil %>
+	<h2>Errors: <%= @error %></h2>
+	<% end %>
+	
+</div> 

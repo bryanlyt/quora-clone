@@ -1,7 +1,7 @@
 
 # login user
 get '/session/new' do
-	@page_title = "User Login"
+	@page_title = "Login | Quora Clone"
  	erb :"session/login"
 end
 

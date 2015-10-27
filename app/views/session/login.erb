@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/loginform.css">
+
+<div class="container">
+
+  <form class="login-form" action="/session" method="post">
+    <h2>Sign in to your account:</h2>
+    <br><br>
+      <input type="email" id="emailInput" class="form-control" placeholder="Email" required autofocus name="user[email]">
+    <br>
+      <input type="password" id="passwordInput" class="form-control" placeholder="Password" required name="user[password]">
+    <br>
+      <input type="submit" value="Sign In" class="signin-button">
+  </form>
+
+  	<br>
+
+  <% if @error != nil %>
+	 <h2>Errors: <%= @error %></h2>
+  <% end %>
+
+	<div class="text">
+	<p>First time? Create a new account <a href="/users/new">HERE</a></p>
+	</div>
+  
+</div> <!-- /container -->

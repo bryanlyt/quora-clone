@@ -1,17 +1,12 @@
-# index redirects to questions page which shows a list of questions
-get '/' do
-	redirect to('/questions')
-end
-
-# register a new user
+# register a new user 
 get '/users/new' do
-	@page_title = "User Registration"
+	@page_title = "Account Registration | Quora Clone"
 	erb :"users/new"
 end
 
 # show user profile page
 get '/users/:id' do 
-	@page_title = "User Profile"
+	@page_title = "User Profile | Quora Clone"
  	erb :"users/profile"
 end
 
@@ -26,3 +21,4 @@ post '/users' do
 		erb :"users/new"
 	end
 end
+
