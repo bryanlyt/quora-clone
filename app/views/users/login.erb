@@ -1,16 +1,29 @@
+<link rel="stylesheet" href="/css/loginform.css">
+
+
+<div class="container text">
 <h2>Sign Up</h2>
-	<form method=post action=/signup>
+<br>
+	<form method=post action=/signup class="loginform">
 		<input type=text placeholder="Username" name="user[username]"><br>
 		<input type=text placeholder="Full Name" name="user[fullname]"><br>
 		<input type=text placeholder="Email" name="user[email]"><br>
 		<input type=text placeholder="Password" name="user[password]"><br>
-		<input type=submit value="Sign Up">
+		<input type=submit value="Sign Up" class="signup-button">
+		<% if @error != nil %>
+		<h2>Errors: <%= @error %></h2>
+		<% end %>
 	</form>
 
+
 <h2>Login</h2>
-	<form method=post action=/login>
+<br>
+	<form method=post action=/login class="loginform">
 		<input type=text placeholder="Username" name="user[username]"><br>
 		<input type=text placeholder="Password" name="user[password]"><br>
 		<input type=submit value="Login">
+		<% if @error != nil %>
+		<h2>Errors: <%= @error %></h2>
+		<% end %>
 	</form>
-
+</div>
