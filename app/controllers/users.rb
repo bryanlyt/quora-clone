@@ -4,12 +4,6 @@ get '/users/new' do
 	erb :"users/new"
 end
 
-# show user profile page
-get '/users/:id' do 
-	@page_title = "User Profile | Quora Clone"
- 	erb :"users/profile"
-end
-
 # create new user
 post '/users' do 
 	@user = User.new(params[:user])
@@ -22,3 +16,8 @@ post '/users' do
 	end
 end
 
+# show user profile page
+get '/users/:id' do 
+	@page_title = "User Profile | Quora Clone"
+ 	erb :"users/profile"
+end

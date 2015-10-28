@@ -1,3 +1,7 @@
+get '/' do
+	@page_title = "Welcome to Quora Clone"
+	erb :layout
+end
 
 # login user
 get '/session/new' do
@@ -22,7 +26,7 @@ post '/session' do
 end
 
 # logout user
-delete '/session/destroy' do
+delete '/session/logout' do
 	session[:user_id] = nil
 	true
 end

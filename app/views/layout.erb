@@ -1,22 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset = "utf-8">
+	<title><%= @page_title %></title>
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/application.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/bootstrap-theme.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="/js/application.js"></script>
   <script src="/js/bootstrap.min.js"></script>
 
-  <title><%= @page_title %></title>
 </head>
 
 <body>
+	<nav class = "navbar navbar-default">
+  	<div class = "containerfluid">
+  		<div class = "navbarheader">
+  			<a class = "navbarbrand" href="/">Quora Clone</a>
+  		</div> <!-- END navbarheader -->
 
+  		<div id = "header-navbar">
+  			<% if logged_in? %> <!-- If user is logged in -->
+	  			<ul class="nav navbar-nav navbar-right">
+  					<li class="dropdown">
+ 		 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %><span class="caret"></span></a>
+  						<ul class="dropdown-menu">
+								<li><a href="/users/<%= current_user.id %>">My Profile</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="/users/<%= current_user.id %>">Log Out</a></li>
+							</ul> <!-- END dropdown-menu -->
+						</li> <!-- END dropdown -->
+					</ul> <!-- END nav navbar-nav navbar-right -->
 
-
+				<% else %> <!-- If user is NOT logged in -->
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/users/new">Sign Up</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
+								<ul class="dropdown-menu">
+									<li class="login-form">
+										<form action="/session" method="post">
+											<p>Sign into your account</p>
+											<input type="email" placeholder="Email" required autofocus name="user[email]">
+											<br>
+											<input type="password" placeholder="Password" required name="user[password]">
+											<br>
+											<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+										</form> <!-- END form -->
+									</li> <!-- END login-form -->
+								</ul> <!-- END dropdown-menu -->
+							</li> <!-- END dropdown -->
+					</ul> <!-- END nav navbar-nav navbar-right -->
+				<% end %>
+			</div> <!-- END header-navbar -->
+		</div> <!-- END containerfluid -->
+	</nav> <!-- END navbar navbar-default -->
 
 </body>
 </html>
