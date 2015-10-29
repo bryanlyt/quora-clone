@@ -1,0 +1,41 @@
+<div class="container page-width">
+	<div>
+	<!-- Question & User Display -->
+		<h3 class="emphasize" ><%= @question.description %></h3>
+		<p class="small">Question by: 
+			<% if @question.user != nil%>
+				<%= @question.user.username  %>
+			<% else %>
+				Anonymous User
+			<% end %>
+		</p>
+
+		<ul class="list-group">
+
+			<!-- Answer submission form -->
+			<% if check_submitted?(@answers_list) %>
+				<li class="list-group-item">
+					<form action="/answers" method="post">
+						<input type="hidden" name=answer[question_id] value="<%= @question.id %>">
+						<textarea type="text" name="answer[description]" placeholder="Enter your answer" class="text-form"></textarea>
+						<br><br>
+						<input type="submit" value="Submit">
+					</form>
+				</li>
+			<% end %>
+
+			<!-- All submitted answers by all users -->
+			<li class="list-group-item"><h5>Submitted Answers</h5></li>
+			<% @answers_list.each do |answer|%>
+			<li class="list-group-item">
+				  <span class="small">Submitted By: <%= answer.user.username %></a></span>
+				  <br>
+				  <span class="norm more"><%= answer.description %></span>
+
+			</li>
+		 	<% end %>
+		</ul>
+	<div>
+
+	<p><a href="/">Back to all questions</a></p>
+</div>

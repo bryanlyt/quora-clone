@@ -17,11 +17,9 @@
 <body>
 	<nav class = "navbar navbar-default">
   	<div class = "containerfluid">
-  		<div class = "navbarheader">
-  			<a class = "navbarbrand" href="/">Quora Clone</a>
-  		</div> <!-- END navbarheader -->
-
   		<div id = "header-navbar">
+  			<a class = "navbarbrand" href="/"><img src="../img/quora_256.png" alt="Quora Clone" height="50"></a>
+
   			<% if logged_in? %> <!-- If user is logged in -->
 	  			<ul class="nav navbar-nav navbar-right">
   					<li class="dropdown">
@@ -29,7 +27,7 @@
   						<ul class="dropdown-menu">
 								<li><a href="/users/<%= current_user.id %>">My Profile</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="/users/<%= current_user.id %>">Log Out</a></li>
+								<li><a href="/session/logout">Log Out</a></li>
 							</ul> <!-- END dropdown-menu -->
 						</li> <!-- END dropdown -->
 					</ul> <!-- END nav navbar-nav navbar-right -->
@@ -38,7 +36,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/users/new">Sign Up</a></li>
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li class="login-form">
 										<form action="/session" method="post">
@@ -47,7 +45,7 @@
 											<br>
 											<input type="password" placeholder="Password" required name="user[password]">
 											<br>
-											<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+											<button class="btn btn-sm btn-primary btn-block" type="submit">Sign in</button>
 										</form> <!-- END form -->
 									</li> <!-- END login-form -->
 								</ul> <!-- END dropdown-menu -->
@@ -57,6 +55,8 @@
 			</div> <!-- END header-navbar -->
 		</div> <!-- END containerfluid -->
 	</nav> <!-- END navbar navbar-default -->
+
+<%= yield %>
 
 </body>
 </html>

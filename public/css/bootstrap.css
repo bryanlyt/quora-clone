@@ -11,6 +11,7 @@ html {
 }
 body {
   margin: 0;
+  
 }
 article,
 aside,
@@ -86,6 +87,14 @@ sub {
 img {
   border: 0;
 }
+img header {
+  border: 0;
+  padding: 55px;
+  height: 10px;
+  float: left;
+
+}
+
 svg:not(:root) {
   overflow: hidden;
 }
@@ -4332,6 +4341,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand > img {
   display: block;
+  float: right;
+  padding-left: 40px;
+
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,

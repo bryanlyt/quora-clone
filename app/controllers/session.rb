@@ -1,8 +1,3 @@
-get '/' do
-	@page_title = "Welcome to Quora Clone"
-	erb :layout
-end
-
 # login user
 get '/session/new' do
 	@page_title = "Login | Quora Clone"
@@ -26,13 +21,11 @@ post '/session' do
 end
 
 # logout user
-delete '/session/logout' do
+get '/session/logout' do
 	session[:user_id] = nil
-	true
+	redirect to ('/')
 end
 
-get '/session/reset' do
-	session[:user_id] = nil
-	redirect to('/')
+get '/session/loginform' do
+	erb :"session/loginform", :layout => false 
 end
-

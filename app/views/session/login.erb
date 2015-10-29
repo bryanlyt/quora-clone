@@ -3,13 +3,13 @@
 <div class="container">
 
   <form class="login-form" action="/session" method="post">
-    <h2>Sign in to your account:</h2>
+    <h2 class="login-form-heading">Create Your Account:</h2>
     <br><br>
       <input type="email" id="emailInput" class="form-control" placeholder="Email" required autofocus name="user[email]">
     <br>
       <input type="password" id="passwordInput" class="form-control" placeholder="Password" required name="user[password]">
     <br>
-      <input type="submit" value="Sign In" class="signin-button">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
   </form>
 
   	<br>
@@ -22,4 +22,4 @@
 	<p>First time? Create a new account <a href="/users/new">HERE</a></p>
 	</div>
   
-</div> <!-- /container -->
+</div> <!-- END container -->

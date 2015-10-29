@@ -1,0 +1,28 @@
+<div class="container page-width">
+	<div>
+		<button class="btn btn-lg btn-default btn-block" type="submit" align="right"><a href="/questions/new">SUBMIT NEW QUESTION</a></button>
+		<br>
+		<h2><%= @list_title %></h2>
+	</div>
+
+	<div>
+		<ul class="list-group">
+			<% @lists.each do |question|%>
+			  <li class="list-group-item">
+				  <h5><span class="bg-success"><a href="/questions/<%= question.id %>"><%= question.description %></a></span></h5>
+
+				  <% answer = question.answers.last %>
+				  <span class="small">
+				  <% if answer == nil %>
+				  	<p class="small">No answer given yet</p>
+				  <% else %>
+				  	<p class="small">Answered by: <%= answer.user.username %></p>
+				  	
+				  	<p class="norm"><%= answer.description %></p>
+				  <% end %>
+				  </span> <!-- END small more -->
+			  </li> <!-- END list-group-item -->
+		 	<% end %> <!-- END list each do question -->
+		</ul> <!-- END list-group -->
+	<div> <!-- END 2nd div -->
+</div> <!-- END container page width -->

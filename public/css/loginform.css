@@ -4,10 +4,15 @@
   margin: 0 auto;
 }
 
+.form-signin .form-signin-heading,
 .login-form .checkbox {
-  font-weight: normal;
   margin-bottom: 10px;
 }
+
+.login-form .checkbox {
+  font-weight: normal;
+}
+
 .login-form .form-control {
   position: relative;
   height: auto;

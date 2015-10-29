@@ -1,3 +1,11 @@
+# display all questions on homepage
+get '/' do
+	@page_title = "Homepage | Quora Clone"
+	@list_title = "Most Recent Questions"
+	@lists = Question.all.order(updated_at: :desc)
+	erb :"questions/all"
+end
+
 # create a new question
 get '/questions/new' do
 	@page_title = "Ask A Question | Quora Clone"
@@ -11,36 +19,26 @@ post '/questions' do
 	else
 		@input = params[:question]
 	end
-	
+
 	@question = Question.new(@input)
-		if questions.save
-			redirect to('/')
+		if @question.save
+			redirect to "/questions/#{@question.id}"
 		else
-			@error = @question.errors.full_messages[0]
-			erb :"questions/new"
+			redirect to "/questions/new"
 		end
 end
 
 # show single question page
 get '/questions/:id' do
-	@page_title = "#{@question.title} | Quora Clone"
 	@question = Question.find_by(id: params[:id])
+	@page_title = "#{@question.description} | Quora Clone"
 	@answers_list = Answer.where(question_id: params[:id]).order(updated_at: :desc)
 	erb :"questions/view"
-end
-
-# display all questions on homepage
-get '/questions' do
-	@page_title = "Homepage | Quora Clone"
-	@list_title = "Most Recent Questions"
-	@list = Question.all.order(updated_at: :desc)
-	erb :"questions/all"
 end
 
 # show all questions submitted by user
 get '/users/:id/questions' do
 	@user = User.find_by(id: params[:id])
 	@questions_list = Question.where(user_id: @user.id).order(updated_at: :desc)
-	return erb :"users/:id/questions", :layout => false
+	return erb :"questions/myquestions", :layout => false
 end
-
