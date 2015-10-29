@@ -1,6 +1,6 @@
 # register a new user 
 get '/users/new' do
-	@page_title = "Account Registration | Quora Clone"
+	@page_title = "Sign Up | Quora Clone"
 	erb :"users/new"
 end
 

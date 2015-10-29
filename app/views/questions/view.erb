@@ -1,17 +1,36 @@
 <div class="container page-width">
 	<div>
 	<!-- Question & User Display -->
-		<h3 class="emphasize" ><%= @question.description %></h3>
+		<h2 class="emphasize" ><%= @question.description %></h2>
 		<p class="small">Question by: 
 			<% if @question.user != nil%>
-				<%= @question.user.username  %>
+				<%= @question.user.username %>
 			<% else %>
 				Anonymous User
 			<% end %>
 		</p>
+		<p class="small">
+			Upvotes: <%= count_question_upvotes(@question) %> 
+			Downvotes: <%= count_question_downvotes(@question) %>
+		</p>
+
+		<% if check_question_voted(@question)%>
+			<div>
+				<form action="/questionvotes/vote" method="post" class="inline-form questionvote">
+					<input type="hidden" name=questionvote[question_id] value="<%= @question.id %>">
+					<input type="hidden" name=questionvote[updown] value="true">
+					<input type="submit" value="Upvote">
+				</form>
+				<form action="/questionvotes/vote" method="post" class="inline-form questionvote">
+					<input type="hidden" name=questionvote[question_id] value="<%= @question.id %>">
+					<input type="hidden" name=questionvote[updown] value="false">
+					<input type="submit" value="Downvote">
+				</form>
+			</div>
+		<% end %>
+		<br>
 
 		<ul class="list-group">
-
 			<!-- Answer submission form -->
 			<% if check_submitted?(@answers_list) %>
 				<li class="list-group-item">
@@ -25,17 +44,33 @@
 			<% end %>
 
 			<!-- All submitted answers by all users -->
-			<li class="list-group-item"><h5>Submitted Answers</h5></li>
+			<li class="list-group-item"><h5>All Answers</h5></li>
 			<% @answers_list.each do |answer|%>
 			<li class="list-group-item">
-				  <span class="small">Submitted By: <%= answer.user.username %></a></span>
+				  <span class="small">Submitted By: <%= answer.user.username %> <span class="pull-right">Upvotes: <%= count_answer_upvotes(answer) %> 
+						Downvotes: <%= count_answer_downvotes(answer) %></span></span>
 				  <br>
 				  <span class="norm more"><%= answer.description %></span>
-
+				  <br>
+						<div>
+							<br>
+						<% if check_answer_voted(answer) %>
+							<form action="/answervotes/vote" method="post" class="inline-form answervote" >
+								<input type="hidden" name=answervote[answer_id] value="<%= answer.id %>">
+								<input type="hidden" name=answervote[updown] value="true">
+								<input type="submit" value="Upvote">
+							</form>
+							<form action="/answervotes/vote" method="post" class="inline-form answervote">
+								<input type="hidden" name=answervote[answer_id] value="<%= answer.id %>">
+								<input type="hidden" name=answervote[updown] value="false">
+								<input type="submit" value="Downvote">
+							</form>
+						<% end %>
+						</div>
 			</li>
 		 	<% end %>
 		</ul>
 	<div>
 
-	<p><a href="/">Back to all questions</a></p>
+	<p><a href="/">Return to all questions</a></p>
 </div>

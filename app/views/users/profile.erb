@@ -1,15 +1,30 @@
 <div class="container page-width">
 	<h1><%= current_user.username %>'s Profile</h1>
 	<br>
-		<h4>NAME: <%= current_user.fullname %><br>
-		EMAIL: <%= current_user.email %></h4>
+		<h4>NAME: &nbsp; <%= current_user.fullname %><br>
+		EMAIL: &nbsp; <%= current_user.email %></h4>
 		<br>
-		<div class="profile-content">
 
-		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" id="myquestions" class="active"><a href="" role="tab" data-toggle="tab">My Questions</a></li>
-			<li role="presentation" id="myanswers"><a href="" role="tab" data-toggle="tab">My Answers</a></li>
+		<ul class="nav nav-pills nav-justified" role="tablist">
+			<li role="presentation" id="myquestions" class="active"><a href="" data-toggle="pill" >My Questions</a></li>
+			<li role="presentation" id="myanswers"><a href="" data-toggle="pill" >My Answers</a></li>
 		</ul>
-
+		<div class="profile-content">
 		</div>
 </div>
+
+<script>
+$(this).load(function(){
+	var link      = window.location.href + "/questions";
+      	$.ajax({
+		    url: link,
+		    method: "GET",
+		    cache: false,
+		    success: function(response){
+		    	$html = $.parseHTML( response )
+		    	$('.profile-content').html($html)
+		    }
+	});
+});
+
+</script>

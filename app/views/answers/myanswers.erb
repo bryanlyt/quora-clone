@@ -1,11 +1,11 @@
-<h3>My Answers</h3>
+
 <div>
 	<ul class="list-group">
 		<% @answers_list.each do |answer|%>
 			<li class="list-group-item">
-				<span class="emphasize">Question: <a href="/questions/<%= answer.question_id %>"><%= answer.question.description %></a></span>
+				<span class="emphasize">Question: <a href="/questions/<%= answer.question_id %>" target="_blank" ><%= answer.question.description %></a></span>
 				<br>
-				My answer: <span><p><%= answer.description %></p></span>
+				<span><p><%= answer.description %></p></span>
 			</li>
 		<% end %>
 	</ul>

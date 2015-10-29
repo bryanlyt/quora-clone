@@ -1,15 +1,15 @@
 <div class="container page-width">
 	<div>
-		<button class="btn btn-lg btn-default btn-block" type="submit" align="right"><a href="/questions/new">SUBMIT NEW QUESTION</a></button>
+		<a href="/questions/new"><button class="btn btn-lg btn-warning btn-block" type="submit" align="right">ASK A QUESTION</button></a>
 		<br>
-		<h2><%= @list_title %></h2>
+		<h3><%= @list_title %></h3>
 	</div>
 
 	<div>
 		<ul class="list-group">
 			<% @lists.each do |question|%>
 			  <li class="list-group-item">
-				  <h5><span class="bg-success"><a href="/questions/<%= question.id %>"><%= question.description %></a></span></h5>
+				  <h5><a href="/questions/<%= question.id %>"><span class="bg-success"><%= question.description %></span></a></h5>
 
 				  <% answer = question.answers.last %>
 				  <span class="small">

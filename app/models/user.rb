@@ -5,6 +5,8 @@ validates :fullname, presence: true
 validates :email, presence: true, uniqueness: true, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 has_many :questions
 has_many :answers
+has_many :question_votes
+has_many :answer_votes
 
 	def self.authenticate(email, password)
 		@user = User.find_by(email: email)

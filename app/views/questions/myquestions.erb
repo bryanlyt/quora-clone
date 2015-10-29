@@ -1,11 +1,10 @@
-	<h3>My Questions</h3>
+
 	<div>
 		<ul class="list-group">
 			<% @questions_list.each do |question|%>
 			  <li class="list-group-item">
-				  <span class="emphasize"><a href="/questions/<%= question.id %>"><%= question.description %></a></span>
+				  <span class="emphasize">Question: <a href="/questions/<%= question.id %>" target="_blank" ><%= question.description %></a></span>
 				  <br>
-				  My questions: <span class="norm more"><%= question.description %></span>
 			  </li>
 		 	<% end %>
 		</ul>

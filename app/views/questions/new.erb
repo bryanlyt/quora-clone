@@ -1,9 +1,5 @@
-<div class="container">
+<div class="container text">
 	<p>Ask a question:</p>
-
-	<% if @error != nil %>
-		<h2>Errors: <%= @error %></h2>
-	<% end %>
 
 	<form action="/questions" method="post">
 		<textarea type="text" name="question[description]" class="text-form" placeholder="Your question"></textarea>

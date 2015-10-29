@@ -1,6 +1,6 @@
 # display all questions on homepage
 get '/' do
-	@page_title = "Homepage | Quora Clone"
+	@page_title = "Welcome to Quora Clone"
 	@list_title = "Most Recent Questions"
 	@lists = Question.all.order(updated_at: :desc)
 	erb :"questions/all"
@@ -8,7 +8,7 @@ end
 
 # create a new question
 get '/questions/new' do
-	@page_title = "Ask A Question | Quora Clone"
+	@page_title = "Submit New Question | Quora Clone"
 	erb :"questions/new"
 end
 
