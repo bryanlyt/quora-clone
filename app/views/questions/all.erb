@@ -1,16 +1,14 @@
 <div class="container page-width">
 	<div>
 		<a href="/questions/new"><button class="btn btn-lg btn-warning btn-block" type="submit" align="right">ASK A QUESTION</button></a>
-		<br>
-		<h3><%= @list_title %></h3>
+			<center><%= will_paginate @lists %></center>
+		<h4><%= @list_title %></h4>
 	</div>
-
 	<div>
 		<ul class="list-group">
 			<% @lists.each do |question|%>
 			  <li class="list-group-item">
 				  <h5><a href="/questions/<%= question.id %>"><span class="bg-success"><%= question.description %></span></a></h5>
-
 				  <% answer = question.answers.last %>
 				  <span class="small">
 				  <% if answer == nil %>

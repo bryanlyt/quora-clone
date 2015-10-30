@@ -2,7 +2,7 @@
 get '/' do
 	@page_title = "Welcome to Quora Clone"
 	@list_title = "Most Recent Questions"
-	@lists = Question.all.order(updated_at: :desc)
+	@lists = Question.all.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 5)
 	erb :"questions/all"
 end
 
@@ -42,3 +42,17 @@ get '/users/:id/questions' do
 	@questions_list = Question.where(user_id: @user.id).order(updated_at: :desc)
 	return erb :"questions/myquestions", :layout => false
 end
+
+# delete questions records from database
+get '/questions/:id/delete' do 
+	@question = Question.find_by(id: params[:id])
+	@page_title = "Confirm deletion of Question ##{params[:id]}?"
+	erb :"questions/delete"
+end
+
+delete '/questions/:id' do
+	q = Question.find_by(id: params[:id])
+	q.destroy!
+	redirect to '/'
+end
+

@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/css/loginform.css">
+<div class="container text">
+	<br><br>
+<% if @question %>
+  <p class="login-form-heading">Are you sure you want to delete the following question: <br><em>"<%= @question.description %>"</em>?</p>
+  <form class="login-form" action="/questions/<%= @question.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Yes, Delete It Now!">
+    <br><br>
+    <a href="/questions/<%= @question.id %>"><input type="submit" value="Oops, I Changed My Mind!"></a>
+  </form>
+<% else %>
+  <p>Question not found.</p>
+<% end %>
+</div>

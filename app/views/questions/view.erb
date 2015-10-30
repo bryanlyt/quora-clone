@@ -50,14 +50,14 @@
 				  <span class="small">Submitted By: <%= answer.user.username %> <span class="pull-right">Upvotes: <%= count_answer_upvotes(answer) %> 
 						Downvotes: <%= count_answer_downvotes(answer) %></span></span>
 				  <br>
-				  <span class="norm more"><%= answer.description %></span>
+				  <span class="norm"><%= answer.description %></span>
 				  <br>
 						<div>
 							<br>
 						<% if check_answer_voted(answer) %>
 							<form action="/answervotes/vote" method="post" class="inline-form answervote" >
-								<input type="hidden" name=answervote[answer_id] value="<%= answer.id %>">
-								<input type="hidden" name=answervote[updown] value="true">
+								<input type="hidden" name="answervote[answer_id]" value="<%= answer.id %>">
+								<input type="hidden" name="answervote[updown]" value="true">
 								<input type="submit" value="Upvote">
 							</form>
 							<form action="/answervotes/vote" method="post" class="inline-form answervote">
@@ -73,4 +73,5 @@
 	<div>
 
 	<p><a href="/">Return to all questions</a></p>
+	<script> var user_id = "<%= give_user_id %>";</script>
 </div>

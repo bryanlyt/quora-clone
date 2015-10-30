@@ -47,3 +47,52 @@ body {
 .inline-form{ 
 	display: inline; 
 }
+
+/* will_paginate */
+.pagination {
+  background: #FDFCFB;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 0.7em;
+  cursor: default; }
+
+.pagination a, .pagination span {
+    padding: 0.2em 0.3em; }
+
+.pagination .disabled {
+    color: #5F6161; }
+
+.pagination .current {
+    font-style: normal;
+    border: 3px solid #F29A95;
+    border-radius: 3px 3px 3px 3px;
+    padding: 0.6em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1px;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+
+.pagination a {
+    text-decoration: none;
+    color: #323333; }
+    .pagination a:hover, .pagination a:focus {
+      text-decoration: underline; }
+
+
+
+/* SimpleModal Basic Modal Dialog */
+#basic-modal-content {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000;}
+
+/* Container */
+#simplemodal-container {height:360px; width:600px; color:#bbb; background-color:#333; border:4px solid #444; padding:12px;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg {background:url(../img/basic/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#simplemodal-container h3 {color:#84b8d9;}
+
+
